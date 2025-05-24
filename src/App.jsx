@@ -3,10 +3,11 @@ import PlantsPage from './pages/PlantsPage'
 import PlantPage from './pages/PlantPage'
 import PlantEditPage from './pages/PlantEditPage'
 import PlantNewPage from './pages/PlantNewPage'
+import GrowthLogsPage from './pages/GrowthLogsPage'
 import PlantNewGrowthLogPage from './pages/PlantNewGrowthLogPage'
 import PlantEditGrowthLogPage from './pages/PlantEditGrowthLogPage'
 import NavBar from './components/NavBar'
-import GrowthLogsPage from './pages/GrowthLogsPage'
+import GrowthLogNewPage from './pages/GrowthLogNewPage'
 
 function Home() {
   const navigate = useNavigate()
@@ -49,6 +50,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/plants" element={<PlantsPage />} />
           <Route path="/growthlogs" element={<GrowthLogsPage />} />
+          <Route path="/growthlogs/new" element={<GrowthLogNewPage />} />
           <Route path="/plants/new" element={<PlantNewPage />} />
           <Route path="/plants/:plantId" element={<PlantPage />} />
           <Route path="/plants/:plantId/edit" element={<PlantEditPage />} />

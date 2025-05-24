@@ -30,7 +30,15 @@ export default function GrowthLogsPage() {
     return (
         <div className="w-full min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-green-100 via-green-200 to-green-400">
             <div className="bg-white/80 rounded-xl shadow-lg p-10 flex flex-col items-center w-[80vw] max-w-full mt-10">
-                <h2 className="text-4xl font-bold text-green-700 mb-8">All Growth Logs</h2>
+                <div className="w-full flex flex-col md:flex-row md:items-center md:justify-between mb-8 gap-4">
+                    <h2 className="text-4xl font-bold text-green-700">All Growth Logs</h2>
+                    <button
+                        className="px-4 py-2 bg-green-400 text-white rounded hover:bg-green-500 transition-colors font-semibold"
+                        onClick={() => navigate('/growthlogs/new')}
+                    >
+                        Add Growth Log
+                    </button>
+                </div>
                 <input
                     type="text"
                     className="mb-6 px-4 py-2 border border-green-300 rounded w-full max-w-md focus:outline-none focus:ring-2 focus:ring-green-400"
