@@ -1,5 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom'
 import PlantsPage from './pages/PlantsPage'
+import PlantPage from './pages/PlantPage'
+import PlantEditPage from './pages/PlantEditPage'
 
 function Home() {
   const navigate = useNavigate()
@@ -28,6 +30,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/plants" element={<PlantsPage />} />
+        <Route path="/plants/:plantId" element={<PlantPage />} />
+        <Route path="/plants/:plantId/edit" element={<PlantEditPage />} />
       </Routes>
     </Router>
   )
