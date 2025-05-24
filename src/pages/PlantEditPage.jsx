@@ -35,8 +35,8 @@ export default function PlantEditPage() {
 
     return (
         <div className="w-full min-h-screen flex flex-col items-center bg-gradient-to-br from-green-100 via-green-200 to-green-400">
-            <div className="bg-white/80 rounded-xl shadow-lg p-10 flex flex-col items-center w-[80vw] max-w-xl mt-10">
-                <h2 className="text-3xl font-bold text-green-700 mb-6">Edit Plant</h2>
+            <div className="bg-white/80 rounded-xl shadow-lg border border-green-200 p-10 flex flex-col items-center w-[80vw] max-w-xl mt-10">
+                <h2 className="text-3xl font-extrabold text-green-700 mb-6 tracking-tight">Edit Plant</h2>
                 {loading && <div className="text-gray-500">Loading...</div>}
                 {error && <div className="text-red-500 mb-4">{error}</div>}
                 {!loading && (
@@ -44,7 +44,7 @@ export default function PlantEditPage() {
                         <div className="mb-4">
                             <label className="block mb-2 font-semibold text-gray-700">Name</label>
                             <input
-                                className="w-full px-4 py-2 border border-green-300 rounded focus:outline-none focus:ring-2 focus:ring-green-400"
+                                className="w-full px-4 py-2 border border-green-300 rounded focus:outline-none focus:ring-2 focus:ring-green-400 bg-white/80"
                                 value={name}
                                 onChange={e => setName(e.target.value)}
                                 required
@@ -53,7 +53,7 @@ export default function PlantEditPage() {
                         <div className="mb-6">
                             <label className="block mb-2 font-semibold text-gray-700">Species</label>
                             <input
-                                className="w-full px-4 py-2 border border-green-300 rounded focus:outline-none focus:ring-2 focus:ring-green-400"
+                                className="w-full px-4 py-2 border border-green-300 rounded focus:outline-none focus:ring-2 focus:ring-green-400 bg-white/80"
                                 value={species}
                                 onChange={e => setSpecies(e.target.value)}
                                 required
@@ -62,13 +62,13 @@ export default function PlantEditPage() {
                         <div className="flex gap-4">
                             <button
                                 type="submit"
-                                className="px-6 py-2 bg-green-400 text-white rounded hover:bg-green-500 transition-colors font-semibold"
+                                className="px-6 py-2 bg-green-400 text-white rounded hover:bg-green-500 transition-all font-semibold"
                             >
                                 Save
                             </button>
                             <button
                                 type="button"
-                                className="px-6 py-2 bg-gray-300 text-white rounded hover:bg-gray-400 transition-colors font-semibold"
+                                className="px-6 py-2 bg-gray-300 text-white rounded hover:bg-gray-400 transition-all font-semibold"
                                 onClick={() => navigate(-1)}
                             >
                                 Cancel
