@@ -47,15 +47,23 @@ export default function PlantPage() {
 
     return (
         <div className="w-full min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-green-100 via-green-200 to-green-400">
-            <div className="relative bg-white/80 rounded-xl shadow-lg p-10 flex flex-col items-center w-[90vw] h-[90vh] max-w-full max-h-[900px] overflow-y-auto">
-                {/* Edit button in top right */}
+            <div className="relative bg-white/80 rounded-xl shadow-lg p-10 flex flex-col items-center w-[80vw] max-w-full">
+                {/* Edit and Add Growth Log buttons in top right */}
                 {plant && (
-                    <button
-                        className="absolute top-6 right-6 px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600 transition-colors"
-                        onClick={() => navigate(`/plants/${plant.id}/edit`)}
-                    >
-                        Edit
-                    </button>
+                    <div className="absolute top-6 right-6 flex gap-2">
+                        <button
+                            className="px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600 transition-colors"
+                            onClick={() => navigate(`/plants/${plant.id}/edit`)}
+                        >
+                            Edit
+                        </button>
+                        <button
+                            className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition-colors"
+                            onClick={() => navigate(`/plants/${plant.id}/growthlogs/new`)}
+                        >
+                            Add Growth Log
+                        </button>
+                    </div>
                 )}
                 {loading && <div className="text-gray-500">Loading...</div>}
                 {error && <div className="text-red-500">{error}</div>}
@@ -85,13 +93,21 @@ export default function PlantPage() {
                                             <span className="font-semibold text-green-800">{log.date}</span>
                                             <span className="text-gray-700 md:ml-6">Height: {log.height} cm</span>
                                         </div>
-                                        <button
-                                            className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition-colors"
-                                            onClick={() => handleDeleteLog(log.id)}
-                                            disabled={deletingLogId === log.id}
-                                        >
-                                            {deletingLogId === log.id ? 'Deleting...' : 'Delete'}
-                                        </button>
+                                        <div className="flex gap-2">
+                                            <button
+                                                className="px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600 transition-colors"
+                                                onClick={() => navigate(`/plants/${plant.id}/growthlogs/${log.id}/edit`)}
+                                            >
+                                                Edit
+                                            </button>
+                                            <button
+                                                className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition-colors"
+                                                onClick={() => handleDeleteLog(log.id)}
+                                                disabled={deletingLogId === log.id}
+                                            >
+                                                {deletingLogId === log.id ? 'Deleting...' : 'Delete'}
+                                            </button>
+                                        </div>
                                     </div>
                                     <span className="italic text-gray-600 mt-2 md:max-w-xs break-words">
                                         {log.note}

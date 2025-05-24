@@ -1,7 +1,12 @@
-import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, useNavigate, Outlet } from 'react-router-dom'
 import PlantsPage from './pages/PlantsPage'
 import PlantPage from './pages/PlantPage'
 import PlantEditPage from './pages/PlantEditPage'
+import PlantNewPage from './pages/PlantNewPage'
+import PlantNewGrowthLogPage from './pages/PlantNewGrowthLogPage'
+import PlantEditGrowthLogPage from './pages/PlantEditGrowthLogPage'
+import NavBar from './components/NavBar'
+import GrowthLogsPage from './pages/GrowthLogsPage'
 
 function Home() {
   const navigate = useNavigate()
@@ -24,14 +29,32 @@ function Home() {
   )
 }
 
+// Layout with NavBar
+function Layout() {
+  return (
+    <div className="flex flex-col min-h-screen w-full">
+      <NavBar />
+      <div className="flex-1 flex flex-col">
+        <Outlet />
+      </div>
+    </div>
+  )
+}
+
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/plants" element={<PlantsPage />} />
-        <Route path="/plants/:plantId" element={<PlantPage />} />
-        <Route path="/plants/:plantId/edit" element={<PlantEditPage />} />
+        <Route element={<Layout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/plants" element={<PlantsPage />} />
+          <Route path="/growthlogs" element={<GrowthLogsPage />} />
+          <Route path="/plants/new" element={<PlantNewPage />} />
+          <Route path="/plants/:plantId" element={<PlantPage />} />
+          <Route path="/plants/:plantId/edit" element={<PlantEditPage />} />
+          <Route path="/plants/:plantId/growthlogs/new" element={<PlantNewGrowthLogPage />} />
+          <Route path="/plants/:plantId/growthlogs/:logId/edit" element={<PlantEditGrowthLogPage />} />
+        </Route>
       </Routes>
     </Router>
   )

@@ -32,6 +32,15 @@ const PlantsController = {
         })
         if (!res.ok) throw new Error('Failed to update plant')
         return true
+    },
+    async createPlant({ name, species }) {
+        const res = await fetch(`${baseUrl}/api/plants`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, species })
+        })
+        if (!res.ok) throw new Error('Failed to create plant')
+        return true
     }
 }
 
