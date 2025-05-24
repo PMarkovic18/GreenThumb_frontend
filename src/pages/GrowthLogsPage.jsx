@@ -29,7 +29,7 @@ export default function GrowthLogsPage() {
 
     return (
         <div className="w-full min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-green-100 via-green-200 to-green-400">
-            <div className="bg-white/80 rounded-xl shadow-lg p-10 flex flex-col items-center w-[80vw] max-w-full">
+            <div className="bg-white/80 rounded-xl shadow-lg p-10 flex flex-col items-center w-[80vw] max-w-full mt-10">
                 <h2 className="text-4xl font-bold text-green-700 mb-8">All Growth Logs</h2>
                 <input
                     type="text"

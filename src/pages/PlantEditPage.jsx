@@ -34,8 +34,8 @@ export default function PlantEditPage() {
     }
 
     return (
-        <div className="w-full min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-green-100 via-green-200 to-green-400">
-            <div className="bg-white/80 rounded-xl shadow-lg p-10 flex flex-col items-center w-[80vw] max-w-xl">
+        <div className="w-full min-h-screen flex flex-col items-center bg-gradient-to-br from-green-100 via-green-200 to-green-400">
+            <div className="bg-white/80 rounded-xl shadow-lg p-10 flex flex-col items-center w-[80vw] max-w-xl mt-10">
                 <h2 className="text-3xl font-bold text-green-700 mb-6">Edit Plant</h2>
                 {loading && <div className="text-gray-500">Loading...</div>}
                 {error && <div className="text-red-500 mb-4">{error}</div>}

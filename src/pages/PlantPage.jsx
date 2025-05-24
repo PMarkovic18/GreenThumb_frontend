@@ -46,8 +46,8 @@ export default function PlantPage() {
     )
 
     return (
-        <div className="w-full min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-green-100 via-green-200 to-green-400">
-            <div className="relative bg-white/80 rounded-xl shadow-lg p-10 flex flex-col items-center w-[80vw] max-w-full">
+        <div className="w-full min-h-screen flex flex-col items-center bg-gradient-to-br from-green-100 via-green-200 to-green-400">
+            <div className="relative bg-white/80 rounded-xl shadow-lg p-10 flex flex-col items-center w-[80vw] max-w-full mt-10">
                 {/* Edit and Add Growth Log buttons in top right */}
                 {plant && (
                     <div className="absolute top-6 right-6 flex gap-2">
