@@ -46,7 +46,7 @@ export default function PlantsPage() {
             <div className="relative bg-white/80 rounded-xl shadow-lg p-10 flex flex-col items-center w-[80vw] max-w-full mt-10">
                 {/* Add New Plant button in top right */}
                 <button
-                    className="absolute top-6 right-6 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition-colors"
+                    className="absolute top-6 right-6 px-4 py-2 bg-green-400 text-white rounded hover:bg-green-500 transition-colors"
                     onClick={() => navigate('/plants/new')}
                 >
                     Add New Plant
@@ -70,13 +70,13 @@ export default function PlantsPage() {
                             </div>
                             <div className="flex gap-2 mt-2 sm:mt-0 sm:ml-4">
                                 <button
-                                    className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+                                    className="px-4 py-2 bg-blue-400 text-white rounded hover:bg-blue-500 transition-colors"
                                     onClick={() => navigate(`/plants/${plant.id}`)}
                                 >
                                     View
                                 </button>
                                 <button
-                                    className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition-colors"
+                                    className="px-4 py-2 bg-red-400 text-white rounded hover:bg-red-500 transition-colors"
                                     onClick={() => handleDelete(plant.id)}
                                     disabled={deletingId === plant.id}
                                 >

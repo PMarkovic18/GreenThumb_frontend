@@ -52,13 +52,13 @@ export default function PlantPage() {
                 {plant && (
                     <div className="absolute top-6 right-6 flex gap-2">
                         <button
-                            className="px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600 transition-colors"
+                            className="px-4 py-2 bg-yellow-400 text-white rounded hover:bg-yellow-500 transition-colors"
                             onClick={() => navigate(`/plants/${plant.id}/edit`)}
                         >
                             Edit
                         </button>
                         <button
-                            className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition-colors"
+                            className="px-4 py-2 bg-green-400 text-white rounded hover:bg-green-500 transition-colors"
                             onClick={() => navigate(`/plants/${plant.id}/growthlogs/new`)}
                         >
                             Add Growth Log
@@ -72,49 +72,51 @@ export default function PlantPage() {
                         <h2 className="text-4xl font-bold text-green-700 mb-4">{plant.name}</h2>
                         <div className="mb-8 text-lg text-gray-700">{plant.species}</div>
                         <h3 className="text-2xl font-semibold text-green-600 mb-4">Growth Logs</h3>
-                        <input
-                            type="text"
-                            className="mb-6 px-4 py-2 border border-green-300 rounded w-full max-w-md focus:outline-none focus:ring-2 focus:ring-green-400"
-                            placeholder="Search growth logs by date or note..."
-                            value={search}
-                            onChange={e => setSearch(e.target.value)}
-                        />
-                        <ul className="w-full">
-                            {filteredGrowthLogs.length === 0 && (
-                                <li className="text-gray-500">No growth logs.</li>
-                            )}
-                            {filteredGrowthLogs.map(log => (
-                                <li
-                                    key={log.id}
-                                    className="mb-4 p-4 rounded bg-green-50 shadow flex flex-col"
-                                >
-                                    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
-                                        <div className="flex flex-col md:flex-row md:items-center gap-2">
-                                            <span className="font-semibold text-green-800">{log.date}</span>
-                                            <span className="text-gray-700 md:ml-6">Height: {log.height} cm</span>
+                        <div className="w-full bg-green-100/40 rounded-lg p-4 mb-2 shadow-inner">
+                            <input
+                                type="text"
+                                className="mb-6 px-4 py-2 border border-green-300 rounded w-full max-w-md focus:outline-none focus:ring-2 focus:ring-green-400"
+                                placeholder="Search growth logs by date or note..."
+                                value={search}
+                                onChange={e => setSearch(e.target.value)}
+                            />
+                            <ul className="w-full">
+                                {filteredGrowthLogs.length === 0 && (
+                                    <li className="text-gray-500">No growth logs.</li>
+                                )}
+                                {filteredGrowthLogs.map(log => (
+                                    <li
+                                        key={log.id}
+                                        className="mb-4 p-4 rounded bg-green-50 shadow flex flex-col"
+                                    >
+                                        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+                                            <div className="flex flex-col md:flex-row md:items-center gap-2">
+                                                <span className="font-semibold text-green-800">{log.date}</span>
+                                                <span className="text-gray-700 md:ml-6">Height: {log.height} cm</span>
+                                            </div>
+                                            <div className="flex gap-2">
+                                                <button
+                                                    className="px-4 py-2 bg-yellow-400 text-white rounded hover:bg-yellow-500 transition-colors"
+                                                    onClick={() => navigate(`/plants/${plant.id}/growthlogs/${log.id}/edit`)}
+                                                >
+                                                    Edit
+                                                </button>
+                                                <button
+                                                    className="px-4 py-2 bg-red-400 text-white rounded hover:bg-red-500 transition-colors"
+                                                    onClick={() => handleDeleteLog(log.id)}
+                                                    disabled={deletingLogId === log.id}
+                                                >
+                                                    {deletingLogId === log.id ? 'Deleting...' : 'Delete'}
+                                                </button>
+                                            </div>
                                         </div>
-                                        <div className="flex gap-2">
-                                            <button
-                                                className="px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600 transition-colors"
-                                                onClick={() => navigate(`/plants/${plant.id}/growthlogs/${log.id}/edit`)}
-                                            >
-                                                Edit
-                                            </button>
-                                            <button
-                                                className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition-colors"
-                                                onClick={() => handleDeleteLog(log.id)}
-                                                disabled={deletingLogId === log.id}
-                                            >
-                                                {deletingLogId === log.id ? 'Deleting...' : 'Delete'}
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <span className="italic text-gray-600 mt-2 md:max-w-xs break-words">
-                                        {log.note}
-                                    </span>
-                                </li>
-                            ))}
-                        </ul>
+                                        <span className="italic text-gray-600 mt-2 md:max-w-xs break-words">
+                                            {log.note}
+                                        </span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
                     </>
                 )}
             </div>

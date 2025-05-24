@@ -68,14 +68,14 @@ export default function PlantNewGrowthLogPage() {
                     <div className="flex gap-4">
                         <button
                             type="submit"
-                            className="px-6 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition-colors font-semibold"
+                            className="px-6 py-2 bg-green-400 text-white rounded hover:bg-green-500 transition-colors font-semibold"
                             disabled={loading}
                         >
                             {loading ? 'Saving...' : 'Save'}
                         </button>
                         <button
                             type="button"
-                            className="px-6 py-2 bg-gray-400 text-white rounded hover:bg-gray-500 transition-colors font-semibold"
+                            className="px-6 py-2 bg-gray-300 text-white rounded hover:bg-gray-400 transition-colors font-semibold"
                             onClick={() => navigate(-1)}
                             disabled={loading}
                         >
